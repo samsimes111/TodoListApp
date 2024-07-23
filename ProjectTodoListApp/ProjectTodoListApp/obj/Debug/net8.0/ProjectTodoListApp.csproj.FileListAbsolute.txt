@@ -1,0 +1,14 @@
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\bin\Debug\net8.0\ProjectTodoListApp.exe
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\bin\Debug\net8.0\ProjectTodoListApp.deps.json
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\bin\Debug\net8.0\ProjectTodoListApp.runtimeconfig.json
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\bin\Debug\net8.0\ProjectTodoListApp.dll
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\bin\Debug\net8.0\ProjectTodoListApp.pdb
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\obj\Debug\net8.0\ProjectTodoListApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\obj\Debug\net8.0\ProjectTodoListApp.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\obj\Debug\net8.0\ProjectTodoListApp.AssemblyInfo.cs
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\obj\Debug\net8.0\ProjectTodoListApp.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\obj\Debug\net8.0\ProjectTodoListApp.dll
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\obj\Debug\net8.0\refint\ProjectTodoListApp.dll
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\obj\Debug\net8.0\ProjectTodoListApp.pdb
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\obj\Debug\net8.0\ProjectTodoListApp.genruntimeconfig.cache
+C:\Users\Admin\source\repos\TodoListApp\ProjectTodoListApp\ProjectTodoListApp\obj\Debug\net8.0\ref\ProjectTodoListApp.dll
