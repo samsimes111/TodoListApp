@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace AppTodoList
@@ -22,6 +24,7 @@ namespace AppTodoList
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            //Them Task
             string task = textBox1.Text.Trim();
             DateTime startDate = dateTimePicker1.Value;
             DateTime endDate = dateTimePicker2.Value;
@@ -30,6 +33,8 @@ namespace AppTodoList
                 dataGridView1.Rows.Add(task, startDate.ToShortDateString(), endDate.ToShortDateString());
                 textBox1.Clear();
             }
+
+            //Sap xep cac cong viec
 
         }
 
@@ -52,5 +57,35 @@ namespace AppTodoList
         {
 
         }
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            //Hien thi thong bao khi hoan thanh
+            if (e.ColumnIndex == dataGridView1.Columns["Done"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewCheckBoxCell thongBao = (DataGridViewCheckBoxCell)dataGridView1.Rows[e.RowIndex].Cells["Done"];
+                bool isChecked = (bool)thongBao.EditedFormattedValue;
+
+                if (isChecked) MessageBox.Show("Hoàn thành!", "Trạng Thái Công Việc", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                else MessageBox.Show("Đã Cật Nhật", "Trạng Thái Công Việc", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            }
+
+
+
+
+        }
+
+        private void dataGridView1_ColumnSortModeChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+            int i = 0;
+            if (i > 0)
+                this.dataGridView1.Columns["startDate"].SortMode = DataGridViewColumnSortMode.Automatic;
+            i++;
+        }
+
+       
     }
 }

@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{02BA6660-AC58-4345-915E-89AA243C865A}|AppTodoList\\AppTodoList.csproj|C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\apptodolist\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{02BA6660-AC58-4345-915E-89AA243C865A}|AppTodoList\\AppTodoList.csproj|c:\\users\\admin\\source\\repos\\todolistapp\\apptodolist\\apptodolist\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{02BA6660-AC58-4345-915E-89AA243C865A}|AppTodoList\\AppTodoList.csproj|solutionrelative:apptodolist\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02BA6660-AC58-4345-915E-89AA243C865A}|AppTodoList\\AppTodoList.csproj|c:\\users\\admin\\source\\repos\\todolistapp\\apptodolist\\apptodolist\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02BA6660-AC58-4345-915E-89AA243C865A}|AppTodoList\\AppTodoList.csproj|solutionrelative:apptodolist\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02BA6660-AC58-4345-915E-89AA243C865A}|AppTodoList\\AppTodoList.csproj|c:\\users\\admin\\source\\repos\\todolistapp\\apptodolist\\apptodolist\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02BA6660-AC58-4345-915E-89AA243C865A}|AppTodoList\\AppTodoList.csproj|solutionrelative:apptodolist\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02BA6660-AC58-4345-915E-89AA243C865A}|AppTodoList\\AppTodoList.csproj|c:\\users\\admin\\source\\repos\\todolistapp\\apptodolist\\apptodolist\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02BA6660-AC58-4345-915E-89AA243C865A}|AppTodoList\\AppTodoList.csproj|solutionrelative:apptodolist\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,8 +25,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "DockedWidth": 184,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,10 +42,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
@@ -45,16 +49,37 @@
               "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "AppTodoList\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Form1.Designer.cs*",
+              "RelativeToolTip": "AppTodoList\\Form1.Designer.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-27T14:18:06.13Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Form1.cs",
               "RelativeDocumentMoniker": "AppTodoList\\Form1.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Form1.cs",
-              "RelativeToolTip": "AppTodoList\\Form1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAFAAAA",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Form1.cs*",
+              "RelativeToolTip": "AppTodoList\\Form1.cs*",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAawFgAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T07:56:54.072Z",
+              "WhenOpened": "2024-07-26T12:17:47.936Z",
               "EditorCaption": ""
             },
             {
@@ -63,11 +88,24 @@
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Form1.cs",
               "RelativeDocumentMoniker": "AppTodoList\\Form1.cs",
-              "ToolTip": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Form1.cs [Design]",
-              "RelativeToolTip": "AppTodoList\\Form1.cs [Design]",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Form1.cs [Design]*",
+              "RelativeToolTip": "AppTodoList\\Form1.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T07:56:43.081Z",
+              "WhenOpened": "2024-07-26T10:04:03.56Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Program.cs",
+              "RelativeDocumentMoniker": "AppTodoList\\Program.cs",
+              "ToolTip": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\Program.cs",
+              "RelativeToolTip": "AppTodoList\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T06:43:38.84Z",
+              "EditorCaption": ""
             }
           ]
         }
