@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\AppTodoList.csproj": {}
+    "C:\\Users\\Admin\\Source\\Repos\\TodoListApp\\AppTodoList\\AppTodoList\\AppTodoList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\AppTodoList.csproj": {
+    "C:\\Users\\Admin\\Source\\Repos\\TodoListApp\\AppTodoList\\AppTodoList\\AppTodoList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\AppTodoList.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Source\\Repos\\TodoListApp\\AppTodoList\\AppTodoList\\AppTodoList.csproj",
         "projectName": "AppTodoList",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\AppTodoList.csproj",
+        "projectPath": "C:\\Users\\Admin\\Source\\Repos\\TodoListApp\\AppTodoList\\AppTodoList\\AppTodoList.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Admin\\source\\repos\\TodoListApp\\AppTodoList\\AppTodoList\\obj\\",
         "projectStyle": "PackageReference",
