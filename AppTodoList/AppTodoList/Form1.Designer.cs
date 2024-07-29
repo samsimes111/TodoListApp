@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             monthCalendar1 = new MonthCalendar();
@@ -50,6 +51,7 @@
             todayButton = new Button();
             tomorowButton = new Button();
             panel1 = new Panel();
+            allButton = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
@@ -114,7 +116,7 @@
             label2.FlatStyle = FlatStyle.Flat;
             label2.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.InfoText;
-            label2.Location = new Point(483, 55);
+            label2.Location = new Point(520, 53);
             label2.Name = "label2";
             label2.Size = new Size(116, 36);
             label2.TabIndex = 17;
@@ -143,16 +145,15 @@
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.BackgroundColor = SystemColors.Menu;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.ButtonHighlight;
             dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.InactiveCaptionText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -163,7 +164,7 @@
             dataGridViewCellStyle4.BackColor = SystemColors.ButtonHighlight;
             dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.ControlText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
@@ -173,17 +174,20 @@
             dataGridView1.Location = new Point(520, 185);
             dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.BackColor = SystemColors.ButtonHighlight;
             dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Control;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.WindowText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.ScrollBars = ScrollBars.Vertical;
             dataGridView1.Size = new Size(682, 355);
             dataGridView1.TabIndex = 25;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // ThongTin
             // 
@@ -219,19 +223,20 @@
             // completeButton
             // 
             completeButton.BackColor = Color.Violet;
-            completeButton.Location = new Point(47, 137);
+            completeButton.Location = new Point(63, 188);
             completeButton.Name = "completeButton";
-            completeButton.Size = new Size(178, 41);
+            completeButton.Size = new Size(144, 47);
             completeButton.TabIndex = 14;
             completeButton.Text = "Đã hoàn thành";
             completeButton.UseVisualStyleBackColor = false;
+            completeButton.Click += completeButton_Click;
             // 
             // todayButton
             // 
             todayButton.BackColor = Color.Violet;
-            todayButton.Location = new Point(47, 25);
+            todayButton.Location = new Point(63, 76);
             todayButton.Name = "todayButton";
-            todayButton.Size = new Size(178, 40);
+            todayButton.Size = new Size(144, 47);
             todayButton.TabIndex = 8;
             todayButton.Text = "Hôm nay";
             todayButton.UseVisualStyleBackColor = false;
@@ -240,9 +245,9 @@
             // tomorowButton
             // 
             tomorowButton.BackColor = Color.Violet;
-            tomorowButton.Location = new Point(47, 80);
+            tomorowButton.Location = new Point(63, 132);
             tomorowButton.Name = "tomorowButton";
-            tomorowButton.Size = new Size(178, 40);
+            tomorowButton.Size = new Size(144, 47);
             tomorowButton.TabIndex = 10;
             tomorowButton.Text = "Ngày mai";
             tomorowButton.UseVisualStyleBackColor = false;
@@ -250,20 +255,31 @@
             // panel1
             // 
             panel1.BackColor = Color.Violet;
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            
             panel1.Controls.Add(completeButton);
-            panel1.Controls.Add(todayButton);
             panel1.Controls.Add(tomorowButton);
-            panel1.Location = new Point(132, 334);
+            panel1.Controls.Add(todayButton);
+            panel1.Controls.Add(allButton);
+            panel1.Location = new Point(137, 316);
             panel1.Name = "panel1";
-            panel1.Size = new Size(267, 206);
+            panel1.Size = new Size(267, 246);
             panel1.TabIndex = 26;
+            // 
+            // allButton
+            // 
+            allButton.BackColor = Color.Violet;
+            allButton.Location = new Point(63, 20);
+            allButton.Name = "allButton";
+            allButton.Size = new Size(144, 47);
+            allButton.TabIndex = 15;
+            allButton.Text = "ALL";
+            allButton.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
             panel2.BackColor = Color.Fuchsia;
             panel2.BorderStyle = BorderStyle.Fixed3D;
-            panel2.Location = new Point(861, 185);
+            panel2.Location = new Point(865, 178);
             panel2.Name = "panel2";
             panel2.Size = new Size(10, 355);
             panel2.TabIndex = 27;
@@ -272,7 +288,7 @@
             // 
             panel3.BackColor = Color.Fuchsia;
             panel3.BorderStyle = BorderStyle.Fixed3D;
-            panel3.Location = new Point(971, 185);
+            panel3.Location = new Point(976, 178);
             panel3.Name = "panel3";
             panel3.Size = new Size(10, 355);
             panel3.TabIndex = 28;
@@ -281,7 +297,7 @@
             // 
             panel4.BackColor = Color.Fuchsia;
             panel4.BorderStyle = BorderStyle.Fixed3D;
-            panel4.Location = new Point(1069, 185);
+            panel4.Location = new Point(1085, 178);
             panel4.Name = "panel4";
             panel4.Size = new Size(10, 355);
             panel4.TabIndex = 29;
@@ -357,6 +373,8 @@
             ClientSize = new Size(1255, 598);
             Controls.Add(panel8);
             Controls.Add(panel7);
+            Controls.Add(panel3);
+            Controls.Add(panel4);
             Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel2);
@@ -368,8 +386,6 @@
             Controls.Add(addButton);
             Controls.Add(monthCalendar1);
             Controls.Add(panel1);
-            Controls.Add(panel3);
-            Controls.Add(panel4);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Controls.Add(label3);
@@ -410,5 +426,6 @@
         private Panel panel8;
         private Label label1;
         private Label label3;
+        private Button allButton;
     }
 }
