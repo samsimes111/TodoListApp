@@ -6,11 +6,11 @@ namespace AppTodoList
     {
         private List<CustomTask> tasks = new List<CustomTask>();
         private List<CustomTask> dateTasks = new List<CustomTask>();
-       
+
         public Form1()
         {
             InitializeComponent();
-            
+
         }
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -52,7 +52,19 @@ namespace AppTodoList
 
         private void todayButton_Click(object sender, EventArgs e)
         {
+            DateTime selectedDate = monthCalendar1.TodayDate;
 
+            var tasksForSelectedDate = tasks.Where(t => t.StartDate.Date <= selectedDate && t.EndDate.Date >= selectedDate).ToList();
+
+            //Cat nhat dateTask
+            dateTasks.Clear();
+            foreach (var task in tasksForSelectedDate)
+            {
+                if (task.Done == false)
+                    dateTasks.Add(task);
+            }
+
+            UpdateDataGridView();
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
@@ -175,8 +187,22 @@ namespace AppTodoList
             if (Count == 0) MessageBox.Show("Chưa công việc nào hoàn thành", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        private void tomorowButton_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = monthCalendar1.TodayDate.AddDays(1);
 
-        
+            var tasksForSelectedDate = tasks.Where(t => t.StartDate.Date <= selectedDate && t.EndDate.Date >= selectedDate).ToList();
+
+            //Cat nhat dateTask
+            dateTasks.Clear();
+            foreach (var task in tasksForSelectedDate)
+            {
+                if (task.Done == false)
+                    dateTasks.Add(task);
+            }
+
+            UpdateDataGridView();
+        }
     }
 
 }
