@@ -106,6 +106,7 @@
             tomorowButton.TabIndex = 10;
             tomorowButton.Text = "Ngày mai";
             tomorowButton.UseVisualStyleBackColor = false;
+            tomorowButton.Click += tomorowButton_Click;
             // 
             // todayButton
             // 
