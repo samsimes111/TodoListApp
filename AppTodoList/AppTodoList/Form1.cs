@@ -1,26 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
-
-
+﻿
 namespace AppTodoList
 {
 
     public partial class Form1 : Form
     {
         private List<CustomTask> tasks = new List<CustomTask>();
-
+        private List<CustomTask> dateTasks = new List<CustomTask>();
+       
         public Form1()
         {
             InitializeComponent();
+            
         }
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
 
+            DateTime selectedDate = monthCalendar1.SelectionRange.Start;
+
+            var tasksForSelectedDate = tasks.Where(t => t.StartDate.Date <= selectedDate && t.EndDate.Date >= selectedDate).ToList();
+
+            //Cat nhat dateTask
+            dateTasks.Clear();
+            foreach (var task in tasksForSelectedDate)
+            {
+                if (task.Done == false)
+                    dateTasks.Add(task);
+            }
+
+            UpdateDataGridView();
         }
+        private void UpdateDataGridView()
+        {
+            dataGridView1.Rows.Clear();
+            foreach (var task in dateTasks)
+            {
+                dataGridView1.Rows.Add(task.ThongTin, task.StartDate.ToShortDateString(), task.EndDate.ToShortDateString(), task.Done);
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -45,7 +62,7 @@ namespace AppTodoList
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
             if (e.ColumnIndex == dataGridView1.Columns["Done"].Index && e.RowIndex >= 0)
             {
                 //Luu gia tri checkBox
@@ -58,8 +75,8 @@ namespace AppTodoList
                 {
                     if (t.ThongTin == (string)taskInfo)
                     {
-                       task = t;
-                       break;
+                        task = t;
+                        break;
                     }
                 }
 
@@ -72,12 +89,41 @@ namespace AppTodoList
                         MessageBox.Show("Công việc đã được hoàn thành!", "Trạng Thái Công Việc", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                         MessageBox.Show("Công việc đã cật nhật chưa hoàn thành!", "Trạng Thái Công Việc", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }   
+                }
             }
         }
 
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            //Chinh sua thong tin trong data grid view
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                var cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                var newValue = cell.Value;
+                var task = tasks[e.RowIndex];
+
+                switch (e.ColumnIndex)
+                {
+                    case 0:
+                        task.ThongTin = (string)newValue;
+                        break;
+                    case 1:
+                        task.StartDate = DateTime.Parse((string)newValue);
+                        break;
+                    case 2:
+                        task.EndDate = DateTime.Parse((string)newValue);
+                        break;
+                    case 3:
+                        task.Done = (bool)newValue;
+                        break;
+                }
+            }
+        }
+
+        //Button_Click
         private void addButton_Click(object sender, EventArgs e)
         {
+
             string task = textBox1.Text.Trim();
             DateTime startDate = dateTimePicker1.Value;
             DateTime endDate = dateTimePicker2.Value;
@@ -93,7 +139,6 @@ namespace AppTodoList
                 textBox1.Clear();
             }
         }
-
         private void deleteButton_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
@@ -111,10 +156,9 @@ namespace AppTodoList
             dataGridView1.Rows.Clear();
             foreach (var task in tasks)
             {
-                    dataGridView1.Rows.Add(task.ThongTin, task.StartDate.ToShortDateString(), task.EndDate.ToShortDateString(), task.Done);
+                dataGridView1.Rows.Add(task.ThongTin, task.StartDate.ToShortDateString(), task.EndDate.ToShortDateString(), task.Done);
             }
         }
-
         private void completeButton_Click(object sender, EventArgs e)
         {
             int Count = 0;
@@ -126,10 +170,13 @@ namespace AppTodoList
                     dataGridView1.Rows.Add(task.ThongTin, task.StartDate.ToShortDateString(), task.EndDate.ToShortDateString(), task.Done);
                     Count++;
                 }
-                
+
             }
-            if(Count==0) MessageBox.Show("Chưa công việc nào hoàn thành", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (Count == 0) MessageBox.Show("Chưa công việc nào hoàn thành", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+
+        
     }
-    
+
 }
