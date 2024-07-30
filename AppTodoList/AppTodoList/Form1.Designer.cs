@@ -34,7 +34,6 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             monthCalendar1 = new MonthCalendar();
             addButton = new Button();
             deleteButton = new Button();
@@ -255,7 +254,6 @@
             // panel1
             // 
             panel1.BackColor = Color.Violet;
-            
             panel1.Controls.Add(completeButton);
             panel1.Controls.Add(tomorowButton);
             panel1.Controls.Add(todayButton);
@@ -274,6 +272,7 @@
             allButton.TabIndex = 15;
             allButton.Text = "ALL";
             allButton.UseVisualStyleBackColor = false;
+            allButton.Click += allButton_Click;
             // 
             // panel2
             // 
