@@ -50,26 +50,29 @@
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             dataGridView1 = new DataGridView();
-            ThongTin = new DataGridViewTextBoxColumn();
-            startDate = new DataGridViewTextBoxColumn();
-            endDate = new DataGridViewTextBoxColumn();
-            Done = new DataGridViewCheckBoxColumn();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
             panel5 = new Panel();
+            panel9 = new Panel();
             panel6 = new Panel();
             panel7 = new Panel();
             panel8 = new Panel();
             label1 = new Label();
             label3 = new Label();
+            panel10 = new Panel();
+            ID = new DataGridViewTextBoxColumn();
+            ThongTin = new DataGridViewTextBoxColumn();
+            startDate = new DataGridViewTextBoxColumn();
+            endDate = new DataGridViewTextBoxColumn();
+            Done = new DataGridViewCheckBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.MediumOrchid;
             panel1.BackgroundImage = Properties.Resources.download__2_;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
@@ -231,7 +234,7 @@
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeight = 29;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ThongTin, startDate, endDate, Done });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, ThongTin, startDate, endDate, Done });
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = SystemColors.ButtonHighlight;
             dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -261,46 +264,6 @@
             dataGridView1.TabIndex = 25;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellEndEdit += dataGridView1_CellEndEdit;
-            // 
-            // ThongTin
-            // 
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
-            ThongTin.DefaultCellStyle = dataGridViewCellStyle3;
-            ThongTin.HeaderText = "Thông Tin";
-            ThongTin.MinimumWidth = 6;
-            ThongTin.Name = "ThongTin";
-            ThongTin.SortMode = DataGridViewColumnSortMode.NotSortable;
-            ThongTin.Width = 300;
-            // 
-            // startDate
-            // 
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            startDate.DefaultCellStyle = dataGridViewCellStyle4;
-            startDate.HeaderText = "Start Date";
-            startDate.MinimumWidth = 6;
-            startDate.Name = "startDate";
-            startDate.SortMode = DataGridViewColumnSortMode.Programmatic;
-            startDate.Width = 110;
-            // 
-            // endDate
-            // 
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            endDate.DefaultCellStyle = dataGridViewCellStyle5;
-            endDate.HeaderText = "End Date";
-            endDate.MinimumWidth = 6;
-            endDate.Name = "endDate";
-            endDate.SortMode = DataGridViewColumnSortMode.NotSortable;
-            endDate.Width = 110;
-            // 
-            // Done
-            // 
-            Done.HeaderText = "Hoàn Thành";
-            Done.MinimumWidth = 6;
-            Done.Name = "Done";
-            Done.Width = 110;
             // 
             // panel2
             // 
@@ -333,10 +296,20 @@
             // 
             panel5.BackColor = Color.Fuchsia;
             panel5.BorderStyle = BorderStyle.Fixed3D;
+            panel5.Controls.Add(panel9);
             panel5.Location = new Point(520, 185);
             panel5.Name = "panel5";
             panel5.Size = new Size(10, 355);
             panel5.TabIndex = 28;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.Fuchsia;
+            panel9.BorderStyle = BorderStyle.Fixed3D;
+            panel9.Location = new Point(-2, -2);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(10, 355);
+            panel9.TabIndex = 29;
             // 
             // panel6
             // 
@@ -391,6 +364,62 @@
             label3.Text = "End Date";
             label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // panel10
+            // 
+            panel10.BackColor = Color.Fuchsia;
+            panel10.BorderStyle = BorderStyle.Fixed3D;
+            panel10.Location = new Point(571, 178);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(10, 355);
+            panel10.TabIndex = 33;
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.Width = 6;
+            // 
+            // ThongTin
+            // 
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
+            ThongTin.DefaultCellStyle = dataGridViewCellStyle3;
+            ThongTin.HeaderText = "Thông Tin";
+            ThongTin.MinimumWidth = 6;
+            ThongTin.Name = "ThongTin";
+            ThongTin.SortMode = DataGridViewColumnSortMode.NotSortable;
+            ThongTin.Width = 294;
+            // 
+            // startDate
+            // 
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            startDate.DefaultCellStyle = dataGridViewCellStyle4;
+            startDate.HeaderText = "Start Date";
+            startDate.MinimumWidth = 6;
+            startDate.Name = "startDate";
+            startDate.SortMode = DataGridViewColumnSortMode.Programmatic;
+            startDate.Width = 110;
+            // 
+            // endDate
+            // 
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            endDate.DefaultCellStyle = dataGridViewCellStyle5;
+            endDate.HeaderText = "End Date";
+            endDate.MinimumWidth = 6;
+            endDate.Name = "endDate";
+            endDate.SortMode = DataGridViewColumnSortMode.NotSortable;
+            endDate.Width = 110;
+            // 
+            // Done
+            // 
+            Done.HeaderText = "Hoàn Thành";
+            Done.MinimumWidth = 6;
+            Done.Name = "Done";
+            Done.Width = 110;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -400,6 +429,7 @@
             ClientSize = new Size(1255, 598);
             Controls.Add(panel8);
             Controls.Add(panel7);
+            Controls.Add(panel10);
             Controls.Add(panel3);
             Controls.Add(panel4);
             Controls.Add(panel6);
@@ -424,6 +454,7 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel5.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -451,6 +482,9 @@
         private Label label1;
         private Label label3;
         private Button allButton;
+        private Panel panel9;
+        private Panel panel10;
+        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn ThongTin;
         private DataGridViewTextBoxColumn startDate;
         private DataGridViewTextBoxColumn endDate;

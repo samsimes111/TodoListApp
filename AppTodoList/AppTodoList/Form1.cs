@@ -6,6 +6,7 @@ namespace AppTodoList
         private List<CustomTask> tasks = new List<CustomTask>();
         private List<CustomTask> todayTasks = new List<CustomTask>();
         private List<CustomTask> tomorrowTasks = new List<CustomTask>();
+        private int nextTaskId = 1;  // Để tạo ID duy nhất cho mỗi công việc
 
         public Form1()
         {
@@ -43,58 +44,27 @@ namespace AppTodoList
         {
             if (e.ColumnIndex == dataGridView1.Columns["Done"].Index && e.RowIndex >= 0)
             {
-                // Lưu giá trị checkBox
                 DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)dataGridView1.Rows[e.RowIndex].Cells["Done"];
                 bool isChecked = (bool)checkBoxCell.EditedFormattedValue;
 
-                var taskInfo = dataGridView1.Rows[e.RowIndex].Cells["ThongTin"].Value;
-                if (taskInfo != null)
+                var taskId = (int)dataGridView1.Rows[e.RowIndex].Cells["ID"].Value;  // Lấy ID công việc
+                var task = tasks.FirstOrDefault(t => t.ID == taskId);
+
+                if (task != null)
                 {
-                    string taskInfoStr = (string)taskInfo;
-                    CustomTask? task = tasks.FirstOrDefault(t => t.ThongTin == taskInfoStr);
+                    task.Done = isChecked;
 
-                    // Thông báo trạng thái job
-                    if (task != null)
-                    {
-                        task.Done = isChecked;
-
-                        if (isChecked)
-                            MessageBox.Show("Công việc đã được hoàn thành!", "Trạng Thái Công Việc", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        else
-                            MessageBox.Show("Công việc đã cập nhật chưa hoàn thành!", "Trạng Thái Công Việc", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    if (isChecked)
+                        MessageBox.Show("Công việc đã được hoàn thành!", "Trạng Thái Công Việc", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Công việc đã cập nhật chưa hoàn thành!", "Trạng Thái Công Việc", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            DateTime selectedDate = monthCalendar1.SelectionRange.Start;
-            UpdateFilteredTasks(selectedDate);
-            UpdateDataGridView(tasks);
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            //Chinh sua thong tin trong data grid view
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                var cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                var newValue = cell.Value;
-                var task = tasks[e.RowIndex];
-
-                switch (e.ColumnIndex)
-                {
-                    case 0:
-                        task.ThongTin = (string)newValue;
-                        break;
-                    case 1:
-                        task.StartDate = DateTime.Parse((string)newValue);
-                        break;
-                    case 2:
-                        task.EndDate = DateTime.Parse((string)newValue);
-                        break;
-                    case 3:
-                        task.Done = (bool)newValue;
-                        break;
-                }
-            }
+            
         }
 
         private void UpdateDataGridView(List<CustomTask> taskList)
@@ -102,7 +72,7 @@ namespace AppTodoList
             dataGridView1.Rows.Clear();
             foreach (var task in taskList)
             {
-                dataGridView1.Rows.Add(task.ThongTin, task.StartDate.ToShortDateString(), task.EndDate.ToShortDateString(), task.Done);
+                dataGridView1.Rows.Add(task.ID,task.ThongTin, task.StartDate.ToShortDateString(), task.EndDate.ToShortDateString(), task.Done);
             }
         }
 
@@ -115,7 +85,15 @@ namespace AppTodoList
 
             if (!string.IsNullOrEmpty(task))
             {
-                tasks.Add(new CustomTask { ThongTin = task, StartDate = startDate, EndDate = endDate, Done = false });
+                var newTask = new CustomTask
+                {
+                    ID = nextTaskId++,  // Gán ID duy nhất cho công việc mới
+                    ThongTin = task,
+                    StartDate = startDate,
+                    EndDate = endDate,
+                    Done = false
+                };
+                tasks.Add(newTask);
                 textBox1.Clear();
                 UpdateFilteredTasks(monthCalendar1.SelectionRange.Start);
                 UpdateDataGridView(tasks);
@@ -126,11 +104,12 @@ namespace AppTodoList
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
-                var taskInfo = row.Cells["ThongTin"].Value.ToString();
-                tasks.RemoveAll(t => t.ThongTin == taskInfo);
+                var taskId = (int)row.Cells["ID"].Value;
+                tasks.RemoveAll(t => t.ID == taskId);
             }
 
             UpdateFilteredTasks(monthCalendar1.SelectionRange.Start);
+            UpdateDataGridView(tasks);
         }
 
         private void allButton_Click(object sender, EventArgs e)
@@ -161,4 +140,5 @@ namespace AppTodoList
             UpdateDataGridView(tomorrowTasks);
         }
     }
+
 }
