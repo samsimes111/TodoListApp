@@ -136,6 +136,8 @@
             monthCalendar1.ForeColor = Color.Violet;
             monthCalendar1.Location = new Point(137, 69);
             monthCalendar1.Margin = new Padding(10, 9, 10, 9);
+            monthCalendar1.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+            monthCalendar1.MinDate = new DateTime(2024, 6, 24, 0, 0, 0, 0);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 6;
             monthCalendar1.TitleBackColor = Color.Fuchsia;
@@ -192,6 +194,8 @@
             // dateTimePicker1
             // 
             dateTimePicker1.Location = new Point(1016, 20);
+            dateTimePicker1.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+            dateTimePicker1.MinDate = new DateTime(2024, 6, 24, 0, 0, 0, 0);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(24, 27);
             dateTimePicker1.TabIndex = 23;
@@ -199,6 +203,8 @@
             // dateTimePicker2
             // 
             dateTimePicker2.Location = new Point(1165, 20);
+            dateTimePicker2.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
+            dateTimePicker2.MinDate = new DateTime(2024, 6, 24, 0, 0, 0, 0);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(24, 27);
             dateTimePicker2.TabIndex = 24;
