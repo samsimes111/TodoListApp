@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
@@ -106,6 +107,7 @@ namespace AppTodoList
                     ShowMessage("Công việc đã cập nhật chưa hoàn thành!", "Trạng Thái Công Việc", MessageBoxIcon.Information);
             }
         }
+
         private void UpdateDataGridView(List<CustomTask> taskList)
         {
             dataGridView1.Rows.Clear();
@@ -114,10 +116,38 @@ namespace AppTodoList
                 dataGridView1.Rows.Add(task.ID, task.ThongTin, task.StartDate.ToShortDateString(), task.EndDate.ToShortDateString(), task.Done);
             }
         }
+       
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            var taskId = (int)dataGridView1.Rows[e.RowIndex].Cells["ID"].Value;
 
+            if (e.ColumnIndex == dataGridView1.Columns["ThongTin"].Index)
+            {
+                string newInfo = (string)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                taskManager.UpdateTaskInfo(taskId, newInfo);
+                UpdateFilteredTasks(monthCalendar1.SelectionRange.Start);
+
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["StartDate"].Index || e.ColumnIndex == dataGridView1.Columns["EndDate"].Index)
+            {
+                string newDateValue = (string)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                DateTime newDate;
+
+                if (DateTime.TryParse(newDateValue, out newDate))
+                {
+                    if (e.ColumnIndex == dataGridView1.Columns["StartDate"].Index)
+                        taskManager.UpdateTaskStartDate(taskId, newDate);
+
+                    else if (e.ColumnIndex == dataGridView1.Columns["EndDate"].Index)
+                        taskManager.UpdateTaskEndDate(taskId, newDate);
+
+                    UpdateFilteredTasks(monthCalendar1.SelectionRange.Start);
+                }
+                else ShowMessage("Ngày tháng không hợp lệ. Vui lòng nhập lại.", "Lỗi", MessageBoxIcon.Error);
+            }
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
