@@ -1,8 +1,4 @@
-﻿using System;
-
-public class Class1
+﻿namespace AppTodoList
 {
-	public Class1()
-	{
-	}
+
 }
