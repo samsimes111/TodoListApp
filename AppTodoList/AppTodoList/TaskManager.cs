@@ -11,6 +11,8 @@ namespace AppTodoList
 
         public List<CustomTask> Tasks => tasks;
 
+
+        // data Button
         public void AddTask(string thongTin, DateTime startDate, DateTime endDate)
         {
             var newTask = new CustomTask
@@ -38,6 +40,7 @@ namespace AppTodoList
             }
         }
 
+        //Get Tasks
         public List<CustomTask> GetTasksForDate(DateTime date)
         {
             return tasks.Where(t => t.StartDate.Date <= date && t.EndDate.Date >= date).ToList();

@@ -50,6 +50,11 @@
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             dataGridView1 = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            ThongTin = new DataGridViewTextBoxColumn();
+            startDate = new DataGridViewTextBoxColumn();
+            endDate = new DataGridViewTextBoxColumn();
+            Done = new DataGridViewCheckBoxColumn();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
@@ -61,11 +66,6 @@
             label1 = new Label();
             label3 = new Label();
             panel10 = new Panel();
-            ID = new DataGridViewTextBoxColumn();
-            ThongTin = new DataGridViewTextBoxColumn();
-            startDate = new DataGridViewTextBoxColumn();
-            endDate = new DataGridViewTextBoxColumn();
-            Done = new DataGridViewCheckBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel5.SuspendLayout();
@@ -137,7 +137,7 @@
             // 
             monthCalendar1.BackColor = Color.Red;
             monthCalendar1.ForeColor = Color.Violet;
-            monthCalendar1.Location = new Point(137, 69);
+            monthCalendar1.Location = new Point(132, 76);
             monthCalendar1.Margin = new Padding(10, 9, 10, 9);
             monthCalendar1.MaxDate = new DateTime(2030, 12, 31, 0, 0, 0, 0);
             monthCalendar1.MinDate = new DateTime(2024, 6, 24, 0, 0, 0, 0);
@@ -265,6 +265,53 @@
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellEndEdit += dataGridView1_CellEndEdit;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            ID.Width = 6;
+            // 
+            // ThongTin
+            // 
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
+            ThongTin.DefaultCellStyle = dataGridViewCellStyle3;
+            ThongTin.HeaderText = "Thông Tin";
+            ThongTin.MinimumWidth = 6;
+            ThongTin.Name = "ThongTin";
+            ThongTin.SortMode = DataGridViewColumnSortMode.NotSortable;
+            ThongTin.Width = 294;
+            // 
+            // startDate
+            // 
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            startDate.DefaultCellStyle = dataGridViewCellStyle4;
+            startDate.HeaderText = "Start Date";
+            startDate.MinimumWidth = 6;
+            startDate.Name = "startDate";
+            startDate.SortMode = DataGridViewColumnSortMode.Programmatic;
+            startDate.Width = 110;
+            // 
+            // endDate
+            // 
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            endDate.DefaultCellStyle = dataGridViewCellStyle5;
+            endDate.HeaderText = "End Date";
+            endDate.MinimumWidth = 6;
+            endDate.Name = "endDate";
+            endDate.SortMode = DataGridViewColumnSortMode.NotSortable;
+            endDate.Width = 110;
+            // 
+            // Done
+            // 
+            Done.HeaderText = "Hoàn Thành";
+            Done.MinimumWidth = 6;
+            Done.Name = "Done";
+            Done.Width = 110;
+            // 
             // panel2
             // 
             panel2.BackColor = Color.Fuchsia;
@@ -373,58 +420,12 @@
             panel10.Size = new Size(10, 355);
             panel10.TabIndex = 33;
             // 
-            // ID
-            // 
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.Width = 6;
-            // 
-            // ThongTin
-            // 
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
-            ThongTin.DefaultCellStyle = dataGridViewCellStyle3;
-            ThongTin.HeaderText = "Thông Tin";
-            ThongTin.MinimumWidth = 6;
-            ThongTin.Name = "ThongTin";
-            ThongTin.SortMode = DataGridViewColumnSortMode.NotSortable;
-            ThongTin.Width = 294;
-            // 
-            // startDate
-            // 
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            startDate.DefaultCellStyle = dataGridViewCellStyle4;
-            startDate.HeaderText = "Start Date";
-            startDate.MinimumWidth = 6;
-            startDate.Name = "startDate";
-            startDate.SortMode = DataGridViewColumnSortMode.Programmatic;
-            startDate.Width = 110;
-            // 
-            // endDate
-            // 
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            endDate.DefaultCellStyle = dataGridViewCellStyle5;
-            endDate.HeaderText = "End Date";
-            endDate.MinimumWidth = 6;
-            endDate.Name = "endDate";
-            endDate.SortMode = DataGridViewColumnSortMode.NotSortable;
-            endDate.Width = 110;
-            // 
-            // Done
-            // 
-            Done.HeaderText = "Hoàn Thành";
-            Done.MinimumWidth = 6;
-            Done.Name = "Done";
-            Done.Width = 110;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            AutoSize = true;
+            BackColor = Color.Fuchsia;
             BackgroundImage = Properties.Resources.images__1_;
             ClientSize = new Size(1255, 598);
             Controls.Add(panel8);
@@ -450,6 +451,7 @@
             ForeColor = SystemColors.ControlText;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Todo List App";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
