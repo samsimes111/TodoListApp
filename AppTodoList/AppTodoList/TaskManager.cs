@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace AppTodoList
 {
@@ -40,8 +41,37 @@ namespace AppTodoList
             }
         }
 
-        //Get Tasks
-        public List<CustomTask> GetTasksForDate(DateTime date)
+        //Chinh sua thong tin datagridview
+        public void UpdateTaskInfo(int taskId, string newInfo)
+        {
+            var task = tasks.FirstOrDefault(t => t.ID == taskId);
+            if (task != null)
+            {
+                task.ThongTin = newInfo;
+            }
+        }
+        public void UpdateTaskStartDate(int taskId, DateTime newStartDate)
+        {
+            var task = tasks.FirstOrDefault(t => t.ID == taskId);
+            if (task != null)
+            {
+                task.StartDate = newStartDate;
+            }
+        }
+
+        public void UpdateTaskEndDate(int taskId, DateTime newEndDate)
+        {
+            var task = tasks.FirstOrDefault(t => t.ID == taskId);
+            if (task != null)
+            {
+                task.EndDate = newEndDate;
+            }
+        }
+
+    
+
+    //Get Tasks
+    public List<CustomTask> GetTasksForDate(DateTime date)
         {
             return tasks.Where(t => t.StartDate.Date <= date && t.EndDate.Date >= date).ToList();
         }
