@@ -22,7 +22,7 @@ namespace AppTodoList
         {
             DateTime selectedDate = monthCalendar1.SelectionRange.Start;
             UpdateFilteredTasks(selectedDate);
-           
+
 
         }
 
@@ -32,7 +32,7 @@ namespace AppTodoList
             UpdateDataGridView(tasksForSelectedDate);
         }
 
-        
+
 
         //Button
 
@@ -50,7 +50,7 @@ namespace AppTodoList
                 UpdateDataGridView(taskManager.Tasks);
             }
         }
-        
+
         private void deleteButton_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
@@ -61,7 +61,7 @@ namespace AppTodoList
 
             UpdateFilteredTasks(monthCalendar1.SelectionRange.Start);
             UpdateDataGridView(taskManager.Tasks);
-            
+
         }
 
         private void allButton_Click(object sender, EventArgs e)
@@ -116,7 +116,7 @@ namespace AppTodoList
                 dataGridView1.Rows.Add(task.ID, task.ThongTin, task.StartDate.ToShortDateString(), task.EndDate.ToShortDateString(), task.Done);
             }
         }
-       
+
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var taskId = (int)dataGridView1.Rows[e.RowIndex].Cells["ID"].Value;
@@ -158,7 +158,15 @@ namespace AppTodoList
         }
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
+            if (dateTimePicker1.Value > dateTimePicker2.Value)
+                dateTimePicker2.Value = dateTimePicker1.Value;
 
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePicker1.Value > dateTimePicker2.Value)
+                dateTimePicker2.Value = dateTimePicker1.Value;
+        } 
     }
 }

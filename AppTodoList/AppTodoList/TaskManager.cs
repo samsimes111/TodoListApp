@@ -68,10 +68,23 @@ namespace AppTodoList
             }
         }
 
-    
+        //select date
+        public void SelectDatetime(DateTime startDate, DateTime endDate)
+        {
 
-    //Get Tasks
-    public List<CustomTask> GetTasksForDate(DateTime date)
+            
+            if (startDate.Date > endDate.Date)
+            {
+                DateTime t = endDate.Date;
+                startDate = endDate.Date;
+                endDate = t.Date;
+            }
+        }
+
+
+
+        //Get Tasks
+        public List<CustomTask> GetTasksForDate(DateTime date)
         {
             return tasks.Where(t => t.StartDate.Date <= date && t.EndDate.Date >= date).ToList();
         }
@@ -93,4 +106,9 @@ namespace AppTodoList
             return tasks.Where(t => t.StartDate.Date <= tomorrow && t.EndDate.Date >= tomorrow && !t.Done).ToList();
         }
     }
+
+
+
+   
+
 }
