@@ -12,9 +12,12 @@ namespace AppTodoList
     {
         private TaskManager taskManager = new TaskManager();
 
+     
         public Form1()
         {
             InitializeComponent();
+            taskManager.LoadTasks();
+            UpdateDataGridView(taskManager.GetTasks());
         }
 
         //Calendar

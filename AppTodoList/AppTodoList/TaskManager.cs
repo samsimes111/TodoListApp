@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace AppTodoList
 {
@@ -12,6 +14,7 @@ namespace AppTodoList
 
         public List<CustomTask> Tasks => tasks;
 
+        private const string filePath = "tasks.json";
 
         // data Button
         public void AddTask(string thongTin, DateTime startDate, DateTime endDate)
@@ -25,11 +28,31 @@ namespace AppTodoList
                 Done = false
             };
             tasks.Add(newTask);
+            SaveTasks();
+        }
+
+        public void SaveTasks()
+        {
+            string json = JsonConvert.SerializeObject(tasks, Formatting.Indented);
+            File.WriteAllText(filePath, json);
+        }
+        public void LoadTasks()
+        {
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                tasks = JsonConvert.DeserializeObject<List<CustomTask>>(json) ?? new List<CustomTask>();
+            }
+        }
+        public List<CustomTask> GetTasks()
+        {
+            return tasks;
         }
 
         public void DeleteTask(int taskId)
         {
             tasks.RemoveAll(t => t.ID == taskId);
+            SaveTasks();
         }
 
         public void UpdateTaskStatus(int taskId, bool done)
@@ -39,6 +62,7 @@ namespace AppTodoList
             {
                 task.Done = done;
             }
+            SaveTasks();
         }
 
         //Chinh sua thong tin datagridview
@@ -49,6 +73,7 @@ namespace AppTodoList
             {
                 task.ThongTin = newInfo;
             }
+            SaveTasks();
         }
         public void UpdateTaskStartDate(int taskId, DateTime newStartDate)
         {
@@ -57,6 +82,7 @@ namespace AppTodoList
             {
                 task.StartDate = newStartDate;
             }
+            SaveTasks();
         }
 
         public void UpdateTaskEndDate(int taskId, DateTime newEndDate)
@@ -66,6 +92,7 @@ namespace AppTodoList
             {
                 task.EndDate = newEndDate;
             }
+            SaveTasks();
         }
 
         //select date
@@ -79,6 +106,7 @@ namespace AppTodoList
                 startDate = endDate.Date;
                 endDate = t.Date;
             }
+            SaveTasks();
         }
 
 

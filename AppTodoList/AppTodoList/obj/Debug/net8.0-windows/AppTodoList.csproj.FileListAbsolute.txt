@@ -34,3 +34,6 @@ C:\Users\Admin\Source\Repos\samsimes111\TodoListApp\AppTodoList\AppTodoList\obj\
 C:\Users\Admin\Source\Repos\samsimes111\TodoListApp\AppTodoList\AppTodoList\obj\Debug\net8.0-windows\ref\AppTodoList.dll
 C:\Users\Admin\Source\Repos\samsimes111\TodoListApp\AppTodoList\AppTodoList\obj\Debug\net8.0-windows\AppTodoList.Form1.resources
 C:\Users\Admin\Source\Repos\samsimes111\TodoListApp\AppTodoList\AppTodoList\obj\Debug\net8.0-windows\AppTodoList.BaseForm.resources
+C:\Users\Admin\Source\Repos\samsimes111\TodoListApp\AppTodoList\AppTodoList\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\Admin\Source\Repos\samsimes111\TodoListApp\AppTodoList\AppTodoList\obj\Debug\net8.0-windows\AppTodoList.csproj.AssemblyReference.cache
+C:\Users\Admin\Source\Repos\samsimes111\TodoListApp\AppTodoList\AppTodoList\obj\Debug\net8.0-windows\AppTodoL.B4C2996D.Up2Date

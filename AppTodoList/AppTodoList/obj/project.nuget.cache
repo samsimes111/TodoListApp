@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eFkG4+R2D0I=",
+  "dgSpecHash": "TldsTGUkSXY=",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Source\\Repos\\samsimes111\\TodoListApp\\AppTodoList\\AppTodoList\\AppTodoList.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
