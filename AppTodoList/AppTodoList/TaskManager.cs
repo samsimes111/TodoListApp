@@ -134,9 +134,4 @@ namespace AppTodoList
             return tasks.Where(t => t.StartDate.Date <= tomorrow && t.EndDate.Date >= tomorrow && !t.Done).ToList();
         }
     }
-
-
-
-   
-
 }
